@@ -1,0 +1,26 @@
+{% extends 'magasin/base.html' %}
+
+{% block content %}
+  <h1>Détails de la commande</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Produit</th>
+        <th>Prix unitaire</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for produit in commande.produits.all %}
+        <tr>
+          <td>{{ produit.libellé }}</td>
+          <td>{{ produit.prix }}</td>
+         
+         
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p>Total de la commande : {{ commande.total }}</p>
+ <a href="{% url 'magasin:confimation' %}" class="btn btn-primary">Confirmation</a>
+{% endblock %}

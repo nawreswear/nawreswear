@@ -1,0 +1,51 @@
+{% extends 'magasin/base.html' %}
+{% block styles %} 
+<style>
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  ul {
+    margin-top: 10px;
+  }
+  
+  li {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  a {
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #007bff;
+  }
+</style>
+{% endblock %}
+{% block content %}
+  <h1><center>Bienvenue, {{ user.username }}!</center></h1>
+  <p><center>Vous êtes connecté en tant qu'utilisateur.</center></p>
+  <p>Voici vos informations :</p>
+  <ul>
+    <li>Nom d'utilisateur : {{ user.username }}</li>
+    <li>Adresse e-mail : {{ user.email }}</li>
+    <!-- Ajoutez d'autres informations utilisateur selon vos besoins -->
+  </ul>
+  <a href="{% url 'magasin:logout' %}"class="btn btn-danger"style="color: white;">Déconnexion</a>
+  <br>
+{% endblock %}

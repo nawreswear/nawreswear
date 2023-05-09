@@ -1,0 +1,27 @@
+{% extends 'magasin/base.html' %}
+{% block content %}
+<center><h1>Catalogue de produits</h1></center>
+<!-- body -->
+<div class="container-fluid mt-3">
+    <a href="{% url 'magasin:majProduits' %}" class="btn btn-sn btn-info">Add New</a></br>
+{% for products in product %}
+<!--<div id={{product.id}} style="width: 18rem;"> -->
+    <div class="col-md-3">
+        <div class="card">
+          <img src="/media/{{product.img}}">
+<div class="card-body">
+  <p><b>{{product.libellé}}</b></p>
+   <p><b>{{product.description}}</b></p>
+   <p><b>{{product.prix}}DT</b></p>
+  <a href="{{product.description}}"type="submit" class="btn btn-sn btn-info">Voir</a>
+  <a href="deleteProduit/{{product.description}}"type="submit"class="btn btn-sn btn-danger">Delete</a>
+  <a href="{% url 'magasin:ajouter_produit' %}" class="btn btn-secondary me-2">Ajouter</a>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
+

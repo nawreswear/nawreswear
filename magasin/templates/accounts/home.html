@@ -1,0 +1,13 @@
+{% extends 'account/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon Site Web</title>
+</head>
+<body>
+    <h1>Bienvenue sur Mon Site Web</h1>
+    <p>Merci de vous inscrire pour accéder à nos fonctionnalités.</p>
+    <a href="{% url 'account:register' %}">S'inscrire</a>
+</body>
+</html>

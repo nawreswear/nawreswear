@@ -1,0 +1,51 @@
+{% extends 'magasin/base.html' %}
+
+{% block content %}
+  <h1>Mon panier d'achat</h1>
+  
+  {% if cart.items %}
+    <table>
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Quantité</th>
+          <th>Prix unitaire</th>
+          <th>Prix total</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart.items %}
+          <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.product.price }}</td>
+            <td>{{ item.total_price }}</td>
+            <td>
+              <form method="post" action="{% url 'magasin:cart_remove_item' item.product.id %}">
+                {% csrf_token %}
+                <button type="submit">Supprimer</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3"></td>
+          <th>Total:</th>
+          <td>{{ cart.total_price }}</td>
+        </tr>
+      </tfoot>
+    </table>
+  {% else %}
+    <p>Votre panier est vide.</p>
+  {% endif %}
+  
+  <h2>Passer une commande</h2>
+  <form method="post" action="{% url 'magasin:checkout' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Passer la commande</button>
+  </form>
+{% endblock %}

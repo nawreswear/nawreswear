@@ -1,0 +1,24 @@
+{% extends 'magasin/base.html' %}
+{% load static %}
+{% block title %}Bienvenue sur notre site e-commerce{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center"><i>Bienvenue sur notre site e-commerce à la fine pointe de la technologie! </i></h1>
+    <p class="text-center">Découvrez notre vaste sélection des produits de haute qualité.</p>
+    <img src="{% static 'onlineshopping.jpg' %}" alt="Mon onlineshopping" class="img-fluid mx-auto d-block mt-4">
+    <p class="text-center mt-4">Nous sommes votre destination unique pour tous vos besoins d’achat,
+        offrant une large gamme de produits de haute qualité à des prix compétitifs.
+        Avec notre interface conviviale, la navigation et l’achat sur notre site sont un jeu d’enfant, 
+        rendant votre expérience d’achat en ligne transparente et agréable. 
+        Notre passerelle de paiement sécurisée garantit la protection de vos informations personnelles, 
+        et notre traitement efficace des commandes et notre expédition rapide garantissent une livraison rapide à votre porte.
+        Que vous recherchiez de la mode, de l’électronique, des articles essentiels pour la maison ou plus encore,
+        notre site Web a quelque chose pour tout le monde. Explorez notre catalogue de produits diversifié
+        et découvrez les dernières tendances et incontournables. Avec notre engagement envers un excellent
+        service à la clientèle, nous nous efforçons de dépasser vos attentes et de fournir une expérience 
+        de magasinage agréable. Rejoignez-nous maintenant et magasinez en toute confiance sur notre plateforme 
+        de commerce électronique de confiance!</p>
+<a href="{% url 'magasin:Lfournisseur' %}">suivante</a>
+
+</div>
+{% endblock %}

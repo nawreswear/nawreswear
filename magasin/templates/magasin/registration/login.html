@@ -1,0 +1,36 @@
+{% extends "magasin/base.html" %}
+{% block content %}
+<div class="col-md-12 mt-5">
+<form method="post">{% csrf_token %}
+    <div class="card">
+        <div class="card-header text-center"><i class="fas fa-user"></i>connexion au magasin </div>
+            <div class="card-body">
+                    {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                    <p class="alert alert-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                    <table>
+                    {% for field in form %}
+                    <tr>
+                    <td>{{ field.label_tag }}</td>
+                    <td>{{ field }}</td>
+                    </tr>
+                    {% endfor %}
+                    </table>
+                    </div>
+                    <div class="card-footer">
+                    <button type="submit"class="btn btn-success btn-block">se connecter</button>
+                    </div>
+                    </form>
+                </div>
+
+                <small>
+                    Pas encore inscrit.e?
+                    <a href="{% url 'magasin:register' %}"class="btn btn-default "> S'inscrire </a>
+                    <br>Mot de passe oublié ?<a href="#">Renouveler mon mot de passe</a>
+                </small>
+                    </div>
+                    </div>
+                    </div>
+{% endblock %}
